@@ -1,7 +1,7 @@
-// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-// import BoardItem from "./BoardItem";
-// import { selectBoard, deleteBoard } from "../../redux/slices/boardSlice";
+import BoardItem from "./BoardItem";
+import { selectBoard, deleteBoard } from "../../redux/slices/boardSlice";
 
 const Wrapper = styled.div`
   display: flex;
@@ -10,14 +10,14 @@ const Wrapper = styled.div`
 `;
 
 const BoardList = (props) => {
-  // const boards = useSelector((state) => state.board.boards);
-  // const selectedBoardId = useSelector((state) => state.board.selectedBoardId);
+  const boards = useSelector((state) => state.board.boards);
+  const selectedBoardId = useSelector((state) => state.board.selectedBoardId);
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   return (
     <Wrapper>
-      {/* {boards.map((board, index) => {
+      {boards.map((board, index) => {
         const isSelected = board.id === selectedBoardId;
         console.log(board.id);
         console.log(isSelected);
@@ -34,7 +34,7 @@ const BoardList = (props) => {
             }}
           />
         )
-      })} */}
+      })}
     </Wrapper>
   );
 };

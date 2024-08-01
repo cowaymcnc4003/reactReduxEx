@@ -19,21 +19,21 @@ const Wrapper = styled.div`
 
 
 const BoardItem = (props) => {
-  // const { board, isSelected, onSelect, onDelete } = props;
+  const { board, isSelected, onSelect, onDelete } = props;
   return (
     <Wrapper
-    // _isSelected={isSelected}
-    // onClick={onSelect}
+      _isSelected={isSelected}
+      onClick={onSelect}
     >
-      {/* {board.title} */}
+      {board.title}
       <button
-      // onClick={(e) => {
-      //   e.stopPropagation();
+        onClick={(e) => {
+          e.stopPropagation();
 
-      //   if (window.confirm('정말 보드를 삭제하시겠습니까?')) {
-      //     onDelete();
-      //   }
-      // }}
+          if (window.confirm('정말 보드를 삭제하시겠습니까?')) {
+            onDelete();
+          }
+        }}
       >
         삭제
       </button>
