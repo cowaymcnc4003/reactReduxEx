@@ -1,7 +1,7 @@
-// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-// import { toggleFinishTodo, deleteTodo } from '../../redux/slices/todoSlice';
-// import TodoItem from "./TodoItem";
+import { toggleFinishTodo, deleteTodo } from '../../redux/slices/todoSlice';
+import TodoItem from "./TodoItem";
 
 const Wrapper = styled.div`
   display: flex;
@@ -10,20 +10,20 @@ const Wrapper = styled.div`
 `;
 
 const TodoList = () => {
-  // const selectedBoardId = useSelector((state) => state.board.selectedBoardId);
-  // const selectedBoardTodos = useSelector((state) => {
-  //   return state.todo.boardTodosMap[selectedBoardId];
-  // });
+  const selectedBoardId = useSelector((state) => state.board.selectedBoardId);
+  const selectedBoardTodos = useSelector((state) => {
+    return state.todo.boardTodosMap[selectedBoardId];
+  });
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // if (!selectedBoardTodos) {
-  //   return null;
-  // }
+  if (!selectedBoardTodos) {
+    return null;
+  }
 
   return (
     <Wrapper>
-      {/* {selectedBoardTodos.map((todo, index) => {
+      {selectedBoardTodos.map((todo, index) => {
         return (
           <TodoItem
             key={index}
@@ -48,7 +48,7 @@ const TodoList = () => {
             }}
           />
         )
-      })} */}
+      })}
     </Wrapper>
   );
 };

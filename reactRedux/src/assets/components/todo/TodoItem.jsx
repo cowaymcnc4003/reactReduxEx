@@ -18,22 +18,22 @@ const TitleContainer = styled.div`
 `
 
 const TodoItem = (props) => {
-  // const { todo, onFinish, onDelete } = props;
+  const { todo, onFinish, onDelete } = props;
   return (
     <Wrapper>
       <input
-      // type='checkbox'
-      // checked={todo.isFinished}
-      // onChange={onFinish}
+        type='checkbox'
+        checked={todo.isFinished}
+        onChange={onFinish}
       />
 
       <TitleContainer
-      // _isFinished={todo.isFinished}
+        _isFinished={todo.isFinished}
       >
-        {/* {todo.title} */}
+        {todo.title}
       </TitleContainer>
       <button
-      // onClick={onDelete}
+        onClick={onDelete}
       >삭제</button>
     </Wrapper>
   );

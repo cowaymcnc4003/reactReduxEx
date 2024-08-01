@@ -1,8 +1,8 @@
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import BoardList from './board/BoardList';
 import BoardMenu from './board/BoardMenu';
-// import TodoMenu from './todo/TodoMenu';
+import TodoMenu from './todo/TodoMenu';
 import TodoList from './todo/TodoList';
 
 const Wrapper = styled.div`
@@ -24,7 +24,7 @@ const TodoContainer = styled.div`
 `
 
 const App = () => {
-  // const isBoardSelected = useSelector((state) => !!state.board.selectedBoardId);
+  const isBoardSelected = useSelector((state) => !!state.board.selectedBoardId);
   return (
     <Wrapper>
       <ContentContainer>
@@ -35,7 +35,7 @@ const App = () => {
 
         <TodoContainer>
           <TodoList />
-          {/* {isBoardSelected && <TodoMenu />} */}
+          {isBoardSelected && <TodoMenu />}
         </TodoContainer>
       </ContentContainer>
 
