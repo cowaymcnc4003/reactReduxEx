@@ -1,7 +1,7 @@
-// import { useMemo } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
+import { useMemo } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
-// import { resetBoardSagaRequested } from '../redux/slices/boardSlice';
+import { resetBoardSagaRequested } from '../redux/slices/boardSlice';
 
 const Wrapper = styled.div`
   width: calc(100% - 32px);
@@ -23,26 +23,26 @@ const ItemCountText = styled.span`
 `;
 
 const AppBar = () => {
-  // const boards = useSelector((state) => state.board.boards);
-  // const boardTodosMap = useSelector((state) => state.todo.boardTodosMap);
-  // const dispatch = useDispatch();
+  const boards = useSelector((state) => state.board.boards);
+  const boardTodosMap = useSelector((state) => state.todo.boardTodosMap);
+  const dispatch = useDispatch();
 
-  // const [unfinishedTodoCount, finishedTodoCount] = useMemo(() => {
-  //   let unfinishedTodoCount = 0;
-  //   let finishedTodoCount = 0;
+  const [unfinishedTodoCount, finishedTodoCount] = useMemo(() => {
+    let unfinishedTodoCount = 0;
+    let finishedTodoCount = 0;
 
-  //   Object.values(boardTodosMap).forEach((todos) => {
-  //     todos.forEach((todo) => {
-  //       if (todo.isFinished) {
-  //         finishedTodoCount++;
-  //       } else {
-  //         unfinishedTodoCount++;
-  //       }
-  //     });
-  //   });
+    Object.values(boardTodosMap).forEach((todos) => {
+      todos.forEach((todo) => {
+        if (todo.isFinished) {
+          finishedTodoCount++;
+        } else {
+          unfinishedTodoCount++;
+        }
+      });
+    });
 
-  //   return [unfinishedTodoCount, finishedTodoCount];
-  // }, [boardTodosMap]);
+    return [unfinishedTodoCount, finishedTodoCount];
+  }, [boardTodosMap]);
 
   return (
     <Wrapper>
@@ -52,16 +52,16 @@ const AppBar = () => {
 
       <MenuContainer>
         <ItemCountText>
-          {/* {`보드 ${boards.length}개 / `}
-          {`할 일 (미완료 : ${unfinishedTodoCount}개, 완료 ${finishedTodoCount}개)`} */}
+          {`보드 ${boards.length}개 / `}
+          {`할 일 (미완료 : ${unfinishedTodoCount}개, 완료 ${finishedTodoCount}개)`}
         </ItemCountText>
 
         <button
-        // onClick={() => {
-        //   if (window.confirm('정말 초기화 하시겠습니까?')) {
-        //     dispatch(resetBoardSagaRequested());
-        //   }
-        // }}
+          onClick={() => {
+            if (window.confirm('정말 초기화 하시겠습니까?')) {
+              dispatch(resetBoardSagaRequested());
+            }
+          }}
         >
           초기화
         </button>

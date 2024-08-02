@@ -4,7 +4,7 @@ import BoardList from './board/BoardList';
 import BoardMenu from './board/BoardMenu';
 import TodoMenu from './todo/TodoMenu';
 import TodoList from './todo/TodoList';
-// import AppBar from './AppBar';
+import AppBar from './AppBar';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -28,7 +28,7 @@ const App = () => {
   const isBoardSelected = useSelector((state) => !!state.board.selectedBoardId);
   return (
     <Wrapper>
-      {/* <AppBar /> */}
+      <AppBar />
       <ContentContainer>
         <BoardContainer>
           <BoardList />
