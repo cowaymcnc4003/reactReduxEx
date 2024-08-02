@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import deleteBoardThunk from '../thunk/deleteBoardThunk';
 
 const initialState = {
   boards: [],
@@ -30,7 +31,16 @@ const boardSlice = createSlice({
     },
     resetBoard: () => {
       return initialState;
-    }
+    },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(deleteBoardThunk.pending, (state, action) => {
+      console.log(action.type);
+    }).addCase(deleteBoardThunk.fulfilled, (state, action) => {
+      console.log(action.type);
+    }).addCase(deleteBoardThunk.rejected, (state, action) => {
+      console.log(action.type);
+    });
   }
 });
 
